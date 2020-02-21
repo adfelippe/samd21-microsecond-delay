@@ -1,7 +1,9 @@
 # samd21-microsecond-delay
 
 This library implements a microsecond-precision delay feature to be used with Atmel's SAMD21 and similar MCUs in that family.
+It uses TC3/TC4 to act as a 32-bit counter.
 It uses the ASF Atmel API. (http://asf.atmel.com/docs/latest/api.html)
+
 
 Please note that the clock source configured in `timer_counter_util.h` is the Generic Clock 4:
 ```

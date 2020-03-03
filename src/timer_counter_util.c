@@ -40,6 +40,8 @@ uint32_t tcFastGetCountValue(void)
 
 void tcFastSetCountValue(uint32_t count)
 {
+    /* Wait for sync before writing to registers */
+    while (tc_is_syncing(&tc_instance));
     TC_HW->COUNT32.COUNT.reg = count;
 }
 

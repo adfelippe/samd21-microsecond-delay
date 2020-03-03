@@ -14,6 +14,7 @@
 
 #define     TC_32BIT_TOP_VALUE          4294967295UL
 #define     CLOCK_SOURCE                GCLK_GENERATOR_4
+#define     TC_HW                       TC4
 
 /****************************************************************************/
 /**
@@ -51,6 +52,36 @@ uint32_t tcGetCountValue(void);
 
 /****************************************************************************/
 /**
+ * @brief   Get current TC value fast
+ *
+ * @detail  This API gets the current TC value directly from its registers
+ *          so it returns faster than the classic tcGetCountValue.
+ *          Be careful when using these fast functions because they make no
+ *          verification if the current TC hardware is correctly initialized.
+ *
+ * @param   None.
+ *
+ * @retval  uint32_t:   Current TC value.
+ *
+ ****************************************************************************/
+uint32_t tcFastGetCountValue(void);
+
+/****************************************************************************/
+/**
+ * @brief   Get current TC value fast
+ *
+ * @detail  This API sets the current TC value directly to its registers.
+ *          Be careful when using these fast functions because they make no
+ *          verification if the current TC hardware is correctly initialized.
+ * @param   None.
+ *
+ * @retval  uint32_t:   Current TC value.
+ *
+ ****************************************************************************/
+void tcFastSetCountValue(uint32_t count);
+
+/****************************************************************************/
+/**
  * @brief   Delay for a specified time in microseconds.
  *
  * @detail  This API will delay for a given amount of microseconds based on
@@ -71,7 +102,7 @@ void tcMicrosecondDelay(uint32_t delay);
             Please see: https://www.freertos.org/vtaskdelayuntil.html
             Before calling it in your code or entering a loop, you must get
             current timer count value with tcGetCountValue and save it to the
-            lastWakeTime variable. You need to to it only once for both scenarios
+            lastWakeTime variable. You need to do it only once for both scenarios
             since the variable is then updated inside the function.
  *
  * @param   *lastWakeTime:  Pointer to the last wake time.

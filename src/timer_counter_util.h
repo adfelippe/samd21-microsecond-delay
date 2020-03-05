@@ -73,9 +73,10 @@ uint32_t tcFastGetCountValue(void);
  * @detail  This API sets the current TC value directly to its registers.
  *          Be careful when using these fast functions because they make no
  *          verification if the current TC hardware is correctly initialized.
- * @param   None.
  *
- * @retval  uint32_t:   Current TC value.
+ * @param   count:  Value to write to count register
+ *
+ * @retval  None.
  *
  ****************************************************************************/
 void tcFastSetCountValue(uint32_t count);

@@ -22,3 +22,5 @@ In order to get this API running properly, you must edit your `conf_clocks.h` fi
 ```
 
 If you need to use other clock source, please use the same template and change it in the API header file as well.
+
+Pay attention to the clock source.
